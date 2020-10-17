@@ -7,6 +7,7 @@ import com.jrp.projectmanagement.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -16,7 +17,7 @@ public class EmployeeService {
     EmployeeRepository empRepo;
 
 
-    public Employee save(Employee employee) {
+    public Employee save( Employee employee) {
         return empRepo.save(employee);
     }
 

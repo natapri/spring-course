@@ -8,8 +8,9 @@ import javax.persistence.*;
 import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 public class Employee {
@@ -22,7 +23,7 @@ public class Employee {
     @Size(min=2, max=50)
     private String firstName;
 
-    @NotBlank(message="*Must give a first name")
+    @NotBlank(message="*Must give a last name")
     @Size(min=1, max=50)
     private String lastName;
 
