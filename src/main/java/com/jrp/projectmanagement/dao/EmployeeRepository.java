@@ -7,9 +7,11 @@ import com.jrp.projectmanagement.entities.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+@RepositoryRestResource(collectionResourceRel="apiemployees", path="apiemployees")
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
     @Override
     List<Employee> findAll();
@@ -22,5 +24,5 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
 
     public Employee findByEmail(String value);
 
-   //  public Employee findByEmployeeId(long theId);
+    public Employee findByEmployeeId(long theId);
 }

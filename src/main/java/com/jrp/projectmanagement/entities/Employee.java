@@ -1,11 +1,13 @@
 package com.jrp.projectmanagement.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jrp.projectmanagement.validators.UniqueValue;
 
 
 import javax.persistence.*;
 import java.util.List;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.NotNull;
 
@@ -16,16 +18,17 @@ public class Employee {
     @SequenceGenerator(name = "employee_seq", sequenceName = "employee_seq", allocationSize = 1)
     private long employeeId;
 
-    @NotNull
+    @NotBlank(message="*Must give a first name")
     @Size(min=2, max=50)
     private String firstName;
 
-    @NotNull
+    @NotBlank(message="*Must give a first name")
     @Size(min=1, max=50)
     private String lastName;
 
-    @NotNull
-    @Email
+    @NotBlank
+    @Email(message="*Must be a valid email address")
+    @UniqueValue
     private String email;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST},
