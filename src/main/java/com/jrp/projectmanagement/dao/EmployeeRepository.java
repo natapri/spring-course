@@ -6,10 +6,11 @@ import com.jrp.projectmanagement.entities.Employee;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
     @Override
     List<Employee> findAll();
 
@@ -18,4 +19,8 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
             "ON pe.employee_id=e.employee_id GROUP BY e.first_name, e.last_name " +
             "ORDER BY 3 DESC")
     public List<EmployeeProject> employeeProjects();
+
+    public Employee findByEmail(String value);
+
+   //  public Employee findByEmployeeId(long theId);
 }
