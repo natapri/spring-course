@@ -15,6 +15,7 @@ import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,7 +34,8 @@ class ProjectManagementApplicationTests {
 
 	@Test
 	public void ifNewProjectSaved_thenSuccess() {
-		Project newProject = new Project("New Test Project", "COMPLETE", "Test Description");
+		Project newProject = new Project("New Test Project", "COMPLETE", "Test Description",
+				new Date(), new Date());
 		proRepo.save(newProject);
 
 		assertEquals(5, proRepo.findAll().size());
