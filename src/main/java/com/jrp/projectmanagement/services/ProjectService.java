@@ -2,6 +2,7 @@ package com.jrp.projectmanagement.services;
 
 import com.jrp.projectmanagement.dao.ProjectRepository;
 import com.jrp.projectmanagement.dto.ChartData;
+import com.jrp.projectmanagement.dto.TimeChartData;
 import com.jrp.projectmanagement.entities.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class ProjectService {
     }
 
 
-   /* public List<TimeChartData> getTimeData(){
+    public List<TimeChartData> getTimeData(){
         return proRepo.getTimeData();
-    } */
+    }
 }
